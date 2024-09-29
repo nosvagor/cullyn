@@ -1,0 +1,557 @@
+package pages
+
+templ Test() {
+	@TextElements()
+	@ListsAndTables()
+}
+
+templ SideNav() {
+	<aside
+		id="sidebar"
+		x-data="{ isOpen: false, position: 'left' }"
+		@toggle-sidebar.window="isOpen = !isOpen"
+		:class="{ 'open': isOpen, 'left': position === 'left', 'right': position === 'right' }"
+	>
+		<button @click="position = position === 'left' ? 'right' : 'left'"></button>
+		<h2>Table of Contents (h2)</h2>
+		<nav>
+			<ul>
+				<li><a href="#text-elements">Text Elements</a></li>
+				<li><a href="#lists-and-tables">Lists and Tables</a></li>
+				<li><a href="#forms">Forms</a></li>
+				<li><a href="#media">Media</a></li>
+				<li><a href="#semantic-elements">Semantic Elements</a></li>
+				<li><a href="#interactive-elements">Interactive Elements</a></li>
+			</ul>
+		</nav>
+	</aside>
+}
+
+templ TextElements() {
+	<section id="text-elements">
+		<h2>Comprehensive Text Elements (h2)</h2>
+		<article>
+			<h3>The Art and Science of Web Development (h3)</h3>
+			<p>
+				Web development is a <strong>dynamic</strong> and <em>ever-evolving</em> field that blends creativity with
+				technical expertise. It encompasses everything from <u>simple static pages</u> to
+				<mark>
+					complex web
+					applications
+				</mark>. A skilled web developer must be proficient in <a href="#">HTML</a>, <a href="#">CSS</a>, and <a href="#">JavaScript</a>, forming the trinity of front-end technologies.
+			</p>
+			<p>
+				As Douglas Crockford once said,
+				<q>
+					The Web is the most hostile software engineering environment
+					imaginable.
+				</q> This underscores the challenges and opportunities in web development.
+			</p>
+			<h4>Core Technologies (h4)</h4>
+			<ul>
+				<li><b>HTML</b>: The backbone of web content</li>
+				<li><i>CSS</i>: The styling language</li>
+				<li><span>JavaScript</span>: The programming language of the web</li>
+			</ul>
+			<h5>Advanced Concepts (h5)</h5>
+			<p>Beyond the basics, web developers often delve into:</p>
+			<ol>
+				<li>Server-side programming (e.g., Node.js, Python, Ruby)</li>
+				<li>Database management</li>
+				<li>API development and integration</li>
+			</ol>
+			<h6>Emerging Trends (h6)</h6>
+			<p>The field is constantly evolving. Some current trends include:</p>
+			<dl>
+				<dt>Progressive Web Apps (PWAs)</dt>
+				<dd>Web applications that offer a native app-like experience</dd>
+				<dt>WebAssembly</dt>
+				<dd>A binary instruction format for a stack-based virtual machine</dd>
+			</dl>
+		</article>
+		<aside>
+			<h4>Did You Know? (h4)</h4>
+			<p>The first website was published on <time datetime="1991-08-06">August 6, 1991</time> by Tim Berners-Lee.</p>
+		</aside>
+		<figure>
+			<pre>
+				<code>
+					{ codeSample() }
+				</code>
+			</pre>
+		</figure>
+		<blockquote cite="https://www.goodreads.com/quotes/35916-any-fool-can-write-code-that-a-computer-can-understand">
+			<p>
+				"Any fool can write code that a computer can understand. Good programmers write code that humans can
+				understand."
+			</p>
+			<footer>— Martin Fowler</footer>
+		</blockquote>
+		<p>
+			Here's an example of a mathematical formula: E = mc<sup>2</sup>. And here's a chemical formula: H<sub>2</sub>O.
+		</p>
+		<p>
+			When writing code, it's important to pay attention to keyboard shortcuts like <kbd>Ctrl</kbd> + <kbd>S</kbd> to
+			save your work frequently.
+		</p>
+		<p>After running your code, you might see output like this: <samp>Hello, World!</samp></p>
+		<p>The <dfn>Document Object Model</dfn> (DOM) is a programming interface for HTML and XML documents.</p>
+		<p>The <abbr title="World Wide Web Consortium">W3C</abbr> develops web standards.</p>
+		<address>
+			Wangare Web Development
+			<br/>
+			123 Coding Street
+			<br/>
+			Techville, TX 12345
+			<br/>
+			Email: <a href="mailto:info@llcdev.com">info@llcdev.com</a>
+		</address>
+		<small>Copyright © 2024 Wangare Web Development. All rights reserved.</small>
+	</section>
+}
+
+func codeSample() string {
+	return `
+func main() {
+    s, err := server.New()
+    if err != nil {
+        log.Fatalf("unable to create server: %v", err)
+    }
+    defer s.Pool.Close()
+
+    if gin.Mode() == gin.ReleaseMode {
+
+    if gin.Mode() == gin.DebugMode {
+    go s.HealthCheck()
+
+    s.Start()
+}
+`
+}
+
+templ ListsAndTables() {
+	<section id="lists-and-tables">
+		<h2>Lists and Tables (h2)</h2>
+		@ComplexUnorderedList()
+		@ComplexOrderedList()
+		@Table()
+	</section>
+}
+
+templ ComplexUnorderedList() {
+	<h3>Complex Unordered List (h3)</h3>
+	<ul>
+		<li>
+			Front-end Development
+			<ul>
+				<li>
+					HTML
+					<ul>
+						<li>Semantic HTML</li>
+						<li>HTML5 APIs</li>
+					</ul>
+				</li>
+				<li>
+					CSS
+					<ul>
+						<li>Flexbox</li>
+						<li>Grid</li>
+						<li>Animations</li>
+					</ul>
+				</li>
+				<li>
+					JavaScript
+					<ul>
+						<li>ES6+</li>
+						<li>
+							Frameworks
+							<ul>
+								<li>React</li>
+								<li>Vue</li>
+								<li>Angular</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			Back-end Development
+			<ul>
+				<li>
+					Server-side Languages
+					<ul>
+						<li>Python</li>
+						<li>Ruby</li>
+						<li>Java</li>
+					</ul>
+				</li>
+				<li>
+					Databases
+					<ul>
+						<li>
+							SQL
+							<ul>
+								<li>MySQL</li>
+								<li>PostgreSQL</li>
+							</ul>
+						</li>
+						<li>
+							NoSQL
+							<ul>
+								<li>MongoDB</li>
+								<li>Cassandra</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+}
+
+templ ComplexOrderedList() {
+	<h3>Complex Ordered List with Unordered Elements (h3)</h3>
+	<ol>
+		<li>
+			Project Planning
+			<ul>
+				<li>Define project scope</li>
+				<li>Set project goals</li>
+				<li>Create timeline</li>
+			</ul>
+		</li>
+		<li>
+			Design Phase
+			<ol>
+				<li>
+					Wireframing
+					<ul>
+						<li>Low-fidelity sketches</li>
+						<li>High-fidelity mockups</li>
+					</ul>
+				</li>
+				<li>
+					Visual Design
+					<ul>
+						<li>Color palette selection</li>
+						<li>Typography choices</li>
+						<li>Icon design</li>
+					</ul>
+				</li>
+			</ol>
+		</li>
+		<li>
+			Development Phase
+			<ol>
+				<li>
+					Front-end Development
+					<ul>
+						<li>HTML structure</li>
+						<li>CSS styling</li>
+						<li>JavaScript functionality</li>
+					</ul>
+				</li>
+				<li>
+					Back-end Development
+					<ul>
+						<li>Server setup</li>
+						<li>Database configuration</li>
+						<li>API development</li>
+					</ul>
+				</li>
+				<li>
+					Integration
+					<ol>
+						<li>Connect front-end to back-end</li>
+						<li>Implement authentication</li>
+						<li>Set up data flow</li>
+					</ol>
+				</li>
+			</ol>
+		</li>
+		<li>
+			Testing and Quality Assurance
+			<ul>
+				<li>Unit testing</li>
+				<li>Integration testing</li>
+				<li>User acceptance testing</li>
+			</ul>
+		</li>
+		<li>
+			Deployment and Maintenance
+			<ol>
+				<li>Production deployment</li>
+				<li>
+					Monitoring
+					<ul>
+						<li>Performance tracking</li>
+						<li>Error logging</li>
+					</ul>
+				</li>
+				<li>Ongoing maintenance and updates</li>
+			</ol>
+		</li>
+	</ol>
+}
+
+templ Table() {
+	<h3>Table (h3)</h3>
+	<table>
+		<caption>Project Management Dashboard</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Project Name</th>
+				<th>Start Date</th>
+				<th>Due Date</th>
+				<th>Completed</th>
+				<th>Manager</th>
+				<th>Budget</th>
+				<th>Priority</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Website Redesign</td>
+				<td>2023-06-15</td>
+				<td>2023-09-30</td>
+				<td>false</td>
+				<td>John Doe</td>
+				<td>$15,000.00</td>
+				<td>High</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Mobile App Development</td>
+				<td>2023-07-01</td>
+				<td>2023-12-31</td>
+				<td>false</td>
+				<td>Jane Smith</td>
+				<td>$50,000.00</td>
+				<td>Medium</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Database Migration</td>
+				<td>2023-08-15</td>
+				<td>2023-10-15</td>
+				<td>true</td>
+				<td>Bob Johnson</td>
+				<td>$8,500.00</td>
+				<td>Low</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>AI Chatbot Integration</td>
+				<td>2023-09-01</td>
+				<td>2024-02-29</td>
+				<td>false</td>
+				<td>Alice Brown</td>
+				<td>$75,000.00</td>
+				<td>High</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Security Audit</td>
+				<td>2023-10-01</td>
+				<td>2023-11-30</td>
+				<td>false</td>
+				<td>Charlie Davis</td>
+				<td>$12,000.00</td>
+				<td>Critical</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="6">Total Budget:</td>
+				<td colspan="2">$160,500.00</td>
+			</tr>
+		</tfoot>
+	</table>
+}
+
+templ Forms() {
+	<section id="forms">
+		<h2>Forms (h2)</h2>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>Personal Information</legend>
+				<p>
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" required autofocus placeholder="John Doe"/>
+				</p>
+				<p>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required placeholder="johndoe@example.com"/>
+				</p>
+				<p>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" required minlength="8"/>
+				</p>
+				<p>
+					<label for="dob">Date of Birth:</label>
+					<input type="date" id="dob" name="dob"/>
+				</p>
+				<p>
+					<label for="age">Age:</label>
+					<input type="number" id="age" name="age" min="18" max="120"/>
+				</p>
+				<p>
+					<label for="phone">Phone:</label>
+					<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+				</p>
+				<p>
+					<label for="website">Website:</label>
+					<input type="url" id="website" name="website"/>
+				</p>
+				<p>
+					<label for="avatar">Avatar:</label>
+					<input type="file" id="avatar" name="avatar" accept="image/*"/>
+				</p>
+			</fieldset>
+			<fieldset>
+				<legend>Preferences</legend>
+				<p>
+					<label for="country">Country:</label>
+					<select id="country" name="country">
+						<optgroup label="North America">
+							<option value="us">United States</option>
+							<option value="ca">Canada</option>
+							<option value="mx">Mexico</option>
+						</optgroup>
+						<optgroup label="Europe">
+							<option value="uk">United Kingdom</option>
+							<option value="fr">France</option>
+							<option value="de">Germany</option>
+						</optgroup>
+					</select>
+				</p>
+				<fieldset>
+					<legend>Gender</legend>
+					<p>
+						<input type="radio" id="male" name="gender" value="male"/>
+						<label for="male">Male</label>
+					</p>
+					<p>
+						<input type="radio" id="female" name="gender" value="female"/>
+						<label for="female">Female</label>
+					</p>
+					<p>
+						<input type="radio" id="other" name="gender" value="other"/>
+						<label for="other">Other</label>
+					</p>
+				</fieldset>
+				<fieldset>
+					<legend>Interests</legend>
+					<p>
+						<input type="checkbox" id="webdev" name="interests" value="webdev"/>
+						<label for="webdev">Web Development</label>
+					</p>
+					<p>
+						<input type="checkbox" id="datasc" name="interests" value="datasc"/>
+						<label for="datasc">Data Science</label>
+					</p>
+					<p>
+						<input type="checkbox" id="ai" name="interests" value="ai"/>
+						<label for="ai">Artificial Intelligence</label>
+					</p>
+				</fieldset>
+				<p>
+					<label for="bio">Bio:</label>
+					<textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+				</p>
+				<p>
+					<label for="experience">Years of Experience:</label>
+					<input type="range" id="experience" name="experience" min="0" max="20" step="1"/>
+				</p>
+			</fieldset>
+			<p>
+				<button type="submit">Submit</button>
+				<button type="reset">Reset</button>
+			</p>
+		</form>
+	</section>
+}
+
+templ Media() {
+	<section id="media">
+		<h2>Media Elements (h2)</h2>
+		<figure>
+			<img src="/api/placeholder/600/400" alt="A diagram of the web development process"/>
+			<figcaption>Fig.1 - The Web Development Process</figcaption>
+		</figure>
+		<audio controls>
+			<source src="audio.ogg" type="audio/ogg"/>
+			<source src="audio.mp3" type="audio/mpeg"/>
+			Your browser does not support the audio element.
+		</audio>
+		<video controls>
+			<source src="video.mp4" type="video/mp4"/>
+			<source src="video.webm" type="video/webm"/>
+			Your browser does not support the video tag.
+			<track kind="subtitles" src="subtitles_en.vtt" srclang="en" label="English"/>
+		</video>
+		<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+		<canvas id="myCanvas">
+			Your browser does not support the canvas element.
+		</canvas>
+		<picture>
+			<source media="(min-width: 800px)" srcset="static/imgs/nosvagor.jpg"/>
+			<source media="(min-width: 400px)" srcset="static/imgs/nosvagor-medium.jpg"/>
+			<img src="static/imgs/nosvagor.jpg" alt="img alt info"/>
+		</picture>
+	</section>
+}
+
+templ SemanticElements() {
+	<section id="semantic-elements">
+		<h2>Semantic Elements (h2)</h2>
+		<article>
+			<h3>The Importance of Semantic HTML (h3)</h3>
+			<p>
+				Semantic HTML introduces meaning to the web page rather than just presentation. Examples include
+				&lt;article&gt;, &lt;aside&gt;, &lt;details&gt;, &lt;figcaption&gt;, &lt;figure&gt;, &lt;footer&gt;,
+				&lt;header&gt;, &lt;main&gt;, &lt;mark&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;summary&gt;,
+				&lt;time&gt; among others.
+			</p>
+		</article>
+		<aside>
+			<h4>Related Links (h4)</h4>
+			<ul>
+				<li><a href="#">HTML5 Semantic Elements</a></li>
+				<li><a href="#">Why Use Semantic HTML?</a></li>
+			</ul>
+		</aside>
+		<details open>
+			<summary>Read more about semantic HTML</summary>
+			<p>
+				Semantic HTML elements clearly describe their meaning in a human- and machine-readable way. Elements
+				such as &lt;header&gt;, &lt;footer&gt; and &lt;article&gt; are all considered semantic because they
+				accurately describe the purpose of the element and the type of content that is inside them.
+			</p>
+		</details>
+	</section>
+}
+
+templ InteractiveElements() {
+	<section id="interactive-elements">
+		<h2>Interactive Elements (h2)</h2>
+		<details>
+			<summary>What is HTML?</summary>
+			<p>
+				HTML stands for HyperText Markup Language. It is the standard markup language for creating web
+				pages.
+			</p>
+		</details>
+		<dialog open>
+			<p>This is an open dialog window.</p>
+			<form method="dialog">
+				<button>Close</button>
+			</form>
+		</dialog>
+		<progress value="70" max="100">70%</progress>
+		<meter value="0.6">60%</meter>
+	</section>
+}

@@ -1,0 +1,29 @@
+package nav
+
+import "nosvagor/llc/views/shared"
+
+templ TelescopeTrigger() {
+	<div
+		id="telescope-trigger"
+		x-data="telescope"
+		x-init="init"
+	>
+		<div @click="openModal">
+			<span>Search</span>
+			<kbd>Ctrl + K</kbd>
+		</div>
+		@Telescope()
+		@shared.Script("nav/telescope.js")
+	</div>
+}
+
+templ Telescope() {
+	<dialog id="telescope">
+		<div id="telescope-wrapper">
+			<div id="telescope-header">
+				<h2>Search</h2>
+				<button autofocus @click="closeModal">Close</button>
+			</div>
+		</div>
+	</dialog>
+}

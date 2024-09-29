@@ -1,0 +1,18 @@
+#telescope {
+    width: 80%;
+    max-width: var(--s-208);
+    background-color: var(--c-bg-up);
+    border: 2px solid var(--c-1);
+    border-radius: var(--br-4);
+    padding: var(--s-8);
+}
+
+#telescope-trigger {
+    background-color: var(--c-bg-dn);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--br-base);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+}

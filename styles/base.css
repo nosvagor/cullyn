@@ -1,0 +1,51 @@
+@import "vars.css";
+@import "colors/mappings.css";
+
+body {
+    isolation: isolate;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: var(--c-fg);
+    background-color: var(--c-bg);
+    font-family: var(--ff-sans);
+    font-size: var(--fs-6);
+    line-height: var(--lh-5);
+}
+
+main {
+    flex-grow: 1;
+    width: 96%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--ss-8);
+    margin: var(--s-8) auto var(--s-12);
+}
+
+dialog {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: var(--s-4);
+    background-color: var(--c-bg-up);
+    border-radius: var(--br-4);
+    box-shadow: var(--sh-gen-4);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    z-index: 1000;
+
+    &&::backdrop {
+        background-color: rgba(0, 0, 0, 0.42);
+    }
+}
+
+centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

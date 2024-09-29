@@ -1,0 +1,167 @@
+@import "colors/mappings.css";
+
+:root {
+    /*  font family  */
+    --ff-sans: "Albert Sans", sans-serif;
+    --ff-mono: "Fira Code", monospace;
+    --ff-serif: "Lora", serif;
+    --ff-display: "Archivo", sans-serif;
+    --ff-cursive: "Architects Daughter", cursive;
+
+    /* 🗚  font size */
+    --fs-0: 0.25rem;
+    --fs-1: 0.375rem;
+    --fs-2: 0.5rem;
+    --fs-3: 0.625rem;
+    --fs-4: 0.75rem;
+    --fs-5: 0.875rem;
+    --fs-6: 1rem;
+    --fs-7: 1.125rem;
+    --fs-8: 1.25rem;
+    --fs-9: 1.5rem;
+    --fs-10: 1.875rem;
+    --fs-11: 2.25rem;
+    --fs-12: 2.5rem;
+    --fs-13: 2.75rem;
+    --fs-14: 3rem;
+    --fs-15: 3.5rem;
+    --fs-16: 4rem;
+
+    /*   line height */
+    --lh-1: 1;
+    --lh-2: 1.125;
+    --lh-3: 1.25;
+    --lh-4: 1.375;
+    --lh-5: 1.5;
+    --lh-6: 1.625;
+    --lh-7: 1.75;
+    --lh-8: 2;
+
+    /*   spacing */
+    --s-0: 0;
+    --s-1: 0.125rem;
+    --s-2: 0.25rem;
+    --s-3: 0.375rem;
+    --s-4: 0.5rem;
+    --s-5: 0.625rem;
+    --s-6: 0.75rem;
+    --s-7: 0.875rem;
+    --s-8: 1rem;
+    --s-9: 1.25rem;
+    --s-10: 1.5rem;
+    --s-11: 1.75rem;
+    --s-12: 2rem;
+    --s-13: 2.25rem;
+    --s-14: 2.5rem;
+    --s-15: 2.75rem;
+    --s-16: 3rem;
+    --s-17: 3.5rem;
+    --s-18: 4rem;
+    --s-20: 5rem;
+    --s-24: 6rem;
+    --s-28: 7rem;
+    --s-32: 8rem;
+    --s-36: 9rem;
+    --s-40: 10rem;
+    --s-44: 11rem;
+    --s-48: 12rem;
+    --s-52: 13rem;
+    --s-56: 14rem;
+    --s-60: 15rem;
+    --s-64: 16rem;
+    --s-72: 18rem;
+    --s-80: 20rem;
+    --s-96: 24rem;
+    --s-112: 28rem;
+    --s-128: 32rem;
+    --s-144: 36rem;
+    --s-160: 40rem;
+    --s-176: 44rem;
+    --s-192: 48rem;
+    --s-208: 52rem;
+    --s-224: 56rem;
+    --s-240: 60rem;
+    --s-256: 64rem;
+
+    /* 󰃐 border radius */
+    --br-0: 0px;
+    --br-1: 0.125rem;
+    --br-2: 0.25rem;
+    --br-3: 0.375rem;
+    --br-4: 0.5rem;
+    --br-5: 0.75rem;
+    --br-6: 1rem;
+    --br-7: 1.5rem;
+    --br-8: 9999px;
+
+    /* ⎚  screen size */
+    --ss-0: 475px;
+    --ss-1: 640px;
+    --ss-2: 768px;
+    --ss-3: 1024px;
+    --ss-4: 1280px;
+    --ss-5: 1536px;
+    --ss-6: 1792px;
+    --ss-7: 2048px;
+    --ss-8: 2560px;
+
+    /*  timing */
+    --t-0: 0ms;
+    --t-1: 128ms;
+    --t-2: 192ms;
+    --t-3: 224ms;
+    --t-4: 256ms;
+    --t-5: 384ms;
+    --t-6: 512ms;
+    --t-7: 768ms;
+    --t-8: 1024ms;
+
+    /* ❍ shadow defaults */
+    --sh-color: var(--c-blk);
+    --sh-strength: 10%;
+    --sh-x: 0;
+    --sh-y: 0;
+
+    /* offset */
+    --sh-o-s: calc(1px * var(--sh-x)) calc(1px * var(--sh-y));
+    --sh-o-m: calc(2px * var(--sh-x)) calc(2px * var(--sh-y));
+    --sh-o-e: calc(4px * var(--sh-x)) calc(4px * var(--sh-y));
+
+    /* spread & blur */
+    --sh-b-s: 2px;
+    --sh-b-m: 4px;
+    --sh-b-e: 8px;
+
+    /* generate layered shadows */
+    --sh-gen-1:
+        /* single box shadow (small)  */
+        var(--sh-o-s) var(--sh-b-s) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.5));
+
+    --sh-gen-2:
+        /* two shadows (default) */
+        var(--sh-o-s) var(--sh-b-s) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.5)),
+        var(--sh-o-m) var(--sh-b-m) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.3));
+
+    --sh-gen-3:
+        /* three shadows (large) */
+        var(--sh-o-s) var(--sh-b-s) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.5)),
+        var(--sh-o-m) var(--sh-b-m) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.3)),
+        var(--sh-o-e) var(--sh-b-e) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.2));
+
+    --sh-gen-4:
+        /* four shadows (extra large) */
+        var(--sh-o-s) var(--sh-b-s) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.5)),
+        var(--sh-o-m) var(--sh-b-m) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.3)),
+        var(--sh-o-e) var(--sh-b-e) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.2)),
+        calc(var(--sh-o-e) * 1.5) calc(var(--sh-b-e) * 1.5) rgb(from var(--sh-color) r g b / calc(var(--sh-strength) * 0.1));
+
+    /* ease */
+    --e-i: cubic-bezier(0.4, 0, 1, 1);
+    --e-o: cubic-bezier(0, 0, 0.2, 1);
+    --e-io: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* bounce */
+    --b-i: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --b-o: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --b-io: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

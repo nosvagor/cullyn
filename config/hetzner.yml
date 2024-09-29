@@ -1,0 +1,47 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - fail2ban
+  - docker.io
+  - docker-compose
+  - htop
+  - tree
+  - tmux
+  - curl
+  - wget
+  - vim
+  - ufw
+users:
+  - name: admin
+    groups: sudo, docker
+    shell: /bin/bash
+    sudo: ALL=(ALL) ALL
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBss6WsjQd8f/IREvVogCbGuv4F0Lkv58AUEwlhp6tbX cullyn.newman@gmail.com
+chpasswd:
+  expire: true
+  users:
+    - name: admin
+      password: hunter1
+      type: text
+runcmd:
+  - printf "[sshd]\nenabled = true\nbanaction = iptables-multiport" > /etc/fail2ban/jail.local
+  - systemctl enable fail2ban
+  - ufw allow OpenSSH
+  - ufw enable
+  - sed -i -e '/^\(#\|\)PermitRootLogin/s/^.*$/PermitRootLogin without-password/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)PasswordAuthentication/s/^.*$/PasswordAuthentication no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)PubkeyAuthentication/s/^.*$/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)KbdInteractiveAuthentication/s/^.*$/KbdInteractiveAuthentication no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)ChallengeResponseAuthentication/s/^.*$/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)MaxAuthTries/s/^.*$/MaxAuthTries 3/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)AllowTcpForwarding/s/^.*$/AllowTcpForwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)X11Forwarding/s/^.*$/X11Forwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)AllowAgentForwarding/s/^.*$/AllowAgentForwarding no/' /etc/ssh/sshd_config
+  - sed -i -e '/^\(#\|\)AuthorizedKeysFile/s/^.*$/AuthorizedKeysFile .ssh\/authorized_keys/' /etc/ssh/sshd_config
+  - systemctl restart ssh
+  - echo "\$nrconf{kernelhints} = -1;" > /etc/needre#start/conf.d/99disable-prompt.conf
+  - apt update
+  - apt upgrade -y --allow-downgrades --allow-remove-essential --allow-change-held-package
+  - reboot

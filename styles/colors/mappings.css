@@ -1,0 +1,54 @@
+@import "theme.css";
+
+:root {
+    /* Background */
+    --c-bg-up: var(--drk-4);
+    --c-bg: var(--drk-5);
+    --c-bg-dn: var(--drk-6);
+
+    /* Foreground */
+    --c-fg-up: var(--brt-3);
+    --c-fg: var(--brt-4);
+    --c-fg-dn: var(--brt-5);
+
+    /* Black */
+    --c-blk-up: var(--blk-6);
+    --c-blk: var(--blk-7);
+    --c-blk-dn: var(--blk-8);
+
+    /* White */
+    --c-wht-up: var(--wht-2);
+    --c-wht: var(--wht-3);
+    --c-wht-dn: var(--wht-4);
+
+    /* Passive */
+    --c-0-up: var(--slt-1);
+    --c-0: var(--slt-2);
+    --c-0-dn: var(--slt-3);
+
+    /* Primary */
+    --c-1-up: var(--blu-1);
+    --c-1: var(--blu-2);
+    --c-1-dn: var(--blu-3);
+
+    /* Active */
+    --c-2-up: var(--orn-1);
+    --c-2: var(--orn-2);
+    --c-2-dn: var(--orn-3);
+
+    /* State */
+    --c-3-up: var(--prp-1);
+    --c-3: var(--prp-2);
+    --c-3-dn: var(--prp-3);
+
+    /* Sinaling */
+    --c-crt: var(--pnk-2);
+    --c-err: var(--red-2);
+    --c-wrn: var(--sun-1);
+    --c-suc: var(--grn-1);
+    --c-inf: var(--sky-2);
+
+    /* Semantic */
+    --c-link-i: var(--sag-2);
+    --c-link-o: var(--sag-1);
+}

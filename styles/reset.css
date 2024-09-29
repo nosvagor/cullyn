@@ -1,0 +1,90 @@
+/* Global box-sizing reset */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* Remove default margin, padding, and font inheritance */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit; /* Controversial: resets font properties. Consider if this is what you want. */
+}
+
+/* Root element defaults */
+html {
+    height: 100%;
+    hanging-punctuation: first last; /* Allows punctuation to hang outside the text box */
+    font-size: 100%; /* Sets base font size */
+    text-size-adjust: 100%; /* Prevents mobile browsers from automatically adjusting font size */
+}
+
+/* Improves appearance of links without a class */
+a:not([class]) {
+    text-decoration-skip-ink: auto; /* Optimizes underline skipping around descenders */
+}
+
+/* Media element defaults */
+img,
+picture,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic; /* Provides a fallback for images that don't load */
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem; /* Adds margin to shapes, useful for float layouts */
+}
+
+svg{
+    display: block;
+    max-width: 100%;
+}
+
+/* Form element reset */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Heading text balance */
+h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word; /* Breaks long words to prevent overflow */
+    text-wrap: balance; /* Experimental: balances text for headings */
+}
+
+/* Paragraph formatting */
+p {
+    overflow-wrap: break-word; /* Breaks long words to prevent overflow */
+    text-wrap: pretty; /* Experimental: improves paragraph wrapping */
+    max-width: 69ch; /* Limits line length for readability */
+}
+
+/* Remove list styles for elements with list role */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Smooth scrolling, but only for those who don't prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+    html,
+    :has(:target) {
+        scroll-behavior: smooth;
+        scroll-padding-top: 1.5rem; /* Adds padding to scroll targets */
+    }
+}
+
+/* Respects user's preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

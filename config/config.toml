@@ -1,0 +1,26 @@
+[db]
+driver = "postgres"
+port = 5432
+version = "16.3-alpine"
+
+[web]
+port = 3001
+
+[bin]
+name = "main"
+loc = "./bin/"
+
+[path]
+migration = "./internal/store/migrations"
+air = "./config/air.toml"
+go = "./cmd/main.go"
+
+[css]
+input = "styles/main.css"
+output = "static/main.min.css"
+
+[config]
+sqlc = "./config/sqlc.yml"
+
+[default]
+timezone = "America/Los_Angeles"

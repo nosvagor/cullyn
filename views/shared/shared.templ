@@ -1,0 +1,55 @@
+package shared
+
+import (
+	"crypto/md5"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"path/filepath"
+	"sync"
+	"time"
+)
+
+var (
+	fileHashes      = make(map[string]string)
+	fileHashesMutex sync.RWMutex
+)
+
+func getFileHash(filePath string) string {
+	fileHashesMutex.RLock()
+	hash, exists := fileHashes[filePath]
+	fileHashesMutex.RUnlock()
+
+	if !exists {
+		fullPath := filepath.Join("static", filePath)
+		file, err := os.Open(fullPath)
+		if err != nil {
+			hash = fmt.Sprintf("?v=error-%d", time.Now().Unix()) // fallback to timestamp if error
+			log.Printf("Error opening file %s (using timestamp instead): %v", fullPath, err)
+		} else {
+			defer file.Close()
+			hashMD5 := md5.New()
+			if _, err := io.Copy(hashMD5, file); err != nil {
+				hash = fmt.Sprintf("?v=error-%d", time.Now().Unix()) // fallback to timestamp if error
+				log.Printf("Error hashing file %s (using timestamp instead): %v", fullPath, err)
+			} else {
+				hash = fmt.Sprintf("?v=%x", hashMD5.Sum(nil))
+			}
+		}
+
+		fileHashesMutex.Lock()
+		fileHashes[filePath] = hash
+		fileHashesMutex.Unlock()
+	}
+
+	return hash
+}
+
+templ Script(path string) {
+	<script src={ "/static/js/" + path + getFileHash(filepath.Join("js", path)) }></script>
+}
+
+templ Style(path string) {
+	<link rel="stylesheet" href={ "/static/" + path + getFileHash("main.min.css") }/>
+}

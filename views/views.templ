@@ -1,0 +1,51 @@
+package views
+
+import (
+	"nosvagor/llc/views/modules"
+	"nosvagor/llc/views/shared"
+)
+
+templ FullPage(title string, content templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		@Head()
+		@Title(title)
+		@Body(content)
+	</html>
+}
+
+templ Head() {
+	<head>
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-touch-icon.png"/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png"/>
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png"/>
+		<link rel="manifest" href="/static/favicon/site.webmanifest"/>
+		<link rel="shortcut icon" href="/static/favicon/favicon.ico"/>
+		<meta name="msapplication-TileColor" content="#222536"/>
+		<meta name="msapplication-config" content="/static/favicon/browserconfig.xml"/>
+		<meta name="theme-color" content="#222536"/>
+		@shared.Style("main.min.css")
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Architects+Daughter&family=Archivo:ital,wght@0,100..900;1,100..900&family=Fira+Code:wght@300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="/static/js/htmx.min.js"></script>
+		<script defer src="/static/js/alpine.min.js"></script>
+	</head>
+}
+
+templ Title(title string) {
+	<title>{ title } | cullyn.dev</title>
+}
+
+templ Body(content templ.Component) {
+	<body>
+		@modules.Header(false)
+		<main id="main">
+			@content
+		</main>
+		@modules.Footer(false)
+	</body>
+}
