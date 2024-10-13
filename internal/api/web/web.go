@@ -30,6 +30,3 @@ func renderPage(c *gin.Context, title string, cmp templ.Component) {
 		render(c, cmp)
 	}
 }
-func Index(c *gin.Context) {
-	c.Redirect(http.StatusSeeOther, "/home")
-}

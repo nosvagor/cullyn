@@ -25,27 +25,17 @@ main {
     margin: var(--s-8) auto var(--s-12);
 }
 
-dialog {
-    position: fixed;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: var(--s-4);
-    background-color: var(--c-bg-up);
-    border-radius: var(--br-4);
-    box-shadow: var(--sh-gen-4);
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    z-index: 1000;
-
-    &&::backdrop {
-        background-color: rgba(0, 0, 0, 0.42);
-    }
-}
-
-centered {
+.centered {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+.full {
+    height: 100%;
+    width: 100%;
 }

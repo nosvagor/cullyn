@@ -1,3 +1,8 @@
+#home-wrapper {
+    height: 80%;
+    width: 80%;
+}
+
 .hi {
     font-size: var(--fs-16);
 }

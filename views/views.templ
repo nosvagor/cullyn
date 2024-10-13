@@ -37,7 +37,11 @@ templ Head() {
 }
 
 templ Title(title string) {
-	<title>{ title } | cullyn.dev</title>
+	if title == "" {
+		<title>cullyn.dev</title>
+	} else {
+		<title>{ title } | cullyn.dev</title>
+	}
 }
 
 templ Body(content templ.Component) {

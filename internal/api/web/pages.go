@@ -7,9 +7,5 @@ import (
 )
 
 func Home(c *gin.Context) {
-	renderPage(c, "home", pages.Home("@nosvagor"))
-}
-
-func Colors(c *gin.Context) {
-	renderPage(c, "colors", pages.Colors())
+	renderPage(c, "", pages.Home("@nosvagor"))
 }
