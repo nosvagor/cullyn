@@ -1,8 +1,41 @@
 #home-wrapper {
-    height: 80%;
-    width: 80%;
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    filter: blur(69px);
+    z-index: -1;
+    background: linear-gradient(180deg,
+            transparent 22%,
+            var(--red-4) 25%,
+            var(--orn-2) 30%,
+            var(--sun-1) 35%,
+            var(--blu-1) 40%,
+            var(--blu-5) 70%,
+            var(--ind-6) 83%,
+            transparent 85%
+        );
+    background-size: 1000% 1000%;
+    animation: gradientAnimation 30s ease-out infinite;
 }
 
-.hi {
+@keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%;
+    }
+
+    50% {
+        background-position: 50% 100%;
+    }
+
+    100% {
+        background-position: 50% 0%;
+    }
+}
+
+.hi-mom {
+    margin-top: calc(var(--s-16) * -1);
+    color: var(--c-bg);
     font-size: var(--fs-16);
+    font-weight: 700;
+    cursor: pointer;
 }
