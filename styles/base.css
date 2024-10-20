@@ -17,6 +17,7 @@ body {
 
 main {
     flex-grow: 1;
+    z-index: 0;
     width: 96%;
     display: flex;
     justify-content: center;

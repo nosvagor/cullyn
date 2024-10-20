@@ -7,5 +7,5 @@ import (
 )
 
 func Home(c *gin.Context) {
-	renderPage(c, "", pages.Home("@nosvagor"))
+	renderPage(c, "", pages.Home("cullyn"))
 }

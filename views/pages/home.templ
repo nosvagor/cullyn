@@ -1,7 +1,11 @@
 package pages
 
+import "fmt"
+
 templ Home(heading string) {
-	<div id="home-wrapper">
+	<div class="centered">
+		<div class="hover-wrapper" tabindex="0">
+			<div class="hi-mom" data-char-count={ fmt.Sprint(len(heading)) }>{ heading }</div>
+		</div>
 	</div>
-    <div class="centered hi-mom">cullyn</div>
 }

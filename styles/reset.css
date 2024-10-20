@@ -1,12 +1,16 @@
 /* Global box-sizing reset */
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on iOS */
+}
 
 /* Remove default margin, padding, and font inheritance */
 * {
     margin: 0;
     padding: 0;
+    outline: none;
     font: inherit; /* Controversial: resets font properties. Consider if this is what you want. */
 }
 
