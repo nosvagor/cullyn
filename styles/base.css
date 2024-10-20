@@ -1,3 +1,5 @@
+/* base.css */
+
 @import "vars.css";
 @import "colors/mappings.css";
 
@@ -38,9 +40,4 @@ main {
 
 .debug {
     border: 1px solid red;
-}
-
-.full {
-    height: 100%;
-    width: 100%;
 }

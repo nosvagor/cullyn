@@ -15,54 +15,66 @@ sql:
 # Domain-specific configurations
 # Each entry here represents a separate domain or external service
 overrides:
-  - schema: "internal/store/migrations"
-    queries: "internal/store/queries/llc"
+  - schema: "internal/store/migrations/domain1"
+    queries: "internal/store/queries/domain1"
     gen:
       go:
-        package: "llc"
-        out: "internal/store/sqlc/llc"
+        package: "sqlc"
+        out: "internal/store/sqlc/dmaon1"
 
+  - schema: "internal/store/migrations/domain2"
+    queries: "internal/store/queries/domain2"
+    gen:
+      go:
+        package: "sqlc"
+        out: "internal/store/sqlc/dmaon2"
+
+  - schema: "internal/store/migrations/domain3"
+    queries: "internal/store/queries/domain3"
+    gen:
+      go:
+        package: "sqlc"
+        out: "internal/store/sqlc/dmaon3"
+         
 # Future structure and implementation guide:
 # 1. Directory Structure:
 # internal/
 # └── store/
 #     │
 #     ├── sqlc/          # SQLC-generated code (do not edit manually)
-#     │   ├── llc/
+#     │   ├── domain1/
 #     │   ├── domain2/
 #     │   └── domain3/
 #     │
 #     ├── queries/       # SQL query files for SQLC
-#     │   ├── llc/
-#     │   │   ├── users.sql  # Organize by entity for locality of behavior
-#     │   │   └── posts.sql
+#     │   ├── domain1/
 #     │   ├── domain2/
 #     │   └── domain3/
 #     │
 #     │   # Domain store adapters
-#     ├── llc.go
+#     ├── domain1.go
 #     ├── domain2.go
 #     ├── domain3.go
 #     └── store.go       # Main store (Facade pattern implementation)
 #
 # 2. Repository Pattern Implementation:
-# - Each domain-specific .go file (e.g., llc.go) implements the repository pattern.
+# - Each domain-specific .go file implements the repository pattern.
 # - This encapsulates all database operations for that specific domain.
 # - Provides a clean API for domain-specific database interactions.
 #
 # 3. Adapter Pattern Implementation:
-# - Domain-specific files (e.g., llc.go) serve as adapters.
+# - Domain-specific files  serve as adapters.
 # - They translate between the application's domain models and database representations.
 # - This separation allows for changes in database schema without affecting business logic.
 #
 # 4. Facade Pattern Implementation (in store.go):
-# - Aggregates all domain-specific stores (repositories).
+# - Aggregates all domain-specific stores.
 # - Offers a unified and simplified API for the entire data access layer.
 # - Manages complex operations that may span multiple domains.
 #
 # 5. Extending the Configuration for New Domains:
 # - Add a new entry in the 'overrides' section above.
-# - Follow the established pattern (see 'llc' domain as an example).
+# - Follow the established pattern.
 # - Create corresponding directories in 'sqlc/', 'queries/', and a new adapter file.
 # - Update store.go to include the new domain in the facade.
 #
@@ -74,7 +86,3 @@ overrides:
 # - Keep SQL queries in .sql files, allowing for easier review and version control.
 # - Organize queries by entity (e.g., users.sql, posts.sql) within each domain.
 # - Regularly update SQLC-generated code when changing queries or schema.
-#
-# This architecture provides a modular, maintainable, and scalable approach to
-# managing database operations across multiple domains or services. It allows
-# for easy extension and modification as the application grows and evolves.

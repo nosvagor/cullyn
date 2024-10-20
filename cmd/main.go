@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"nosvagor/llc/internal/server"
+	"nosvagor/cullyn.dev/internal/server"
 
 	"github.com/gin-gonic/gin"
 )

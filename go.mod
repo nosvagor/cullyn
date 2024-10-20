@@ -1,4 +1,4 @@
-module nosvagor/llc
+module nosvagor/cullyn.dev
 
 go 1.22.4
 

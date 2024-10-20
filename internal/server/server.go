@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"nosvagor/llc/internal/utils/config"
+	"nosvagor/cullyn.dev/internal/utils/config"
 
 	"github.com/gin-gonic/gin"
 	"github.com/jackc/pgx/v5/pgxpool"

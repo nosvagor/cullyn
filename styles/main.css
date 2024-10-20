@@ -1,3 +1,6 @@
+/* main.css */
+
 @import "reset.css";
 @import "base.css";
+@import "keyframes.css";
 @import "pages/home.css";

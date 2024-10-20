@@ -1,0 +1,62 @@
+/* keyframes.css */
+
+@keyframes rise {
+    50% {
+        background-position: 50% 100%;
+    }
+}
+
+@keyframes glitch {
+    50% {
+        transform: skew(90deg);
+    }
+}
+
+@keyframes glitch-2 {
+    50% {
+        transform: skew(-90deg);
+    }
+}
+
+@keyframes retract {
+    50% {
+        transform: scale(0.42);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    100% {
+        opacity: 0;
+    }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+}

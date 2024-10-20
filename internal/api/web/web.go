@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"log"
 	"net/http"
-	views "nosvagor/llc/views"
+	"nosvagor/cullyn.dev/views"
 
 	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"

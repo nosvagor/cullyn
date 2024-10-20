@@ -1,9 +1,9 @@
 package server
 
 import (
-	"nosvagor/llc/internal/api"
-	"nosvagor/llc/internal/api/files"
-	"nosvagor/llc/internal/api/web"
+	"nosvagor/cullyn.dev/internal/api"
+	"nosvagor/cullyn.dev/internal/api/files"
+	"nosvagor/cullyn.dev/internal/api/web"
 )
 
 func (s *Server) routes() {
@@ -18,7 +18,7 @@ func (s *Server) routes() {
 	// ⽕test {{{ -------------------------------------------------------------
 	// t := s.Router.Group("/test")
 	// {
-		// t.GET("/colors", web.Colors)
+	// t.GET("/colors", web.Colors)
 	// } // ------------------------------------------------------------------ }}}
 
 	// ⽔api {{{ --------------------------------------------------------------

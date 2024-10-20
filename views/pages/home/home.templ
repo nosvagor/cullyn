@@ -1,8 +1,14 @@
-package pages
+package home
 
 import "fmt"
 
-templ Home(heading string) {
+type HomeContent struct {
+	HeroText string
+	Inputs   []Input
+	Outputs  []Output
+}
+
+templ HeroText(heading string) {
 	<div class="centered">
 		<div class="hover-wrapper" tabindex="0">
 			<div
