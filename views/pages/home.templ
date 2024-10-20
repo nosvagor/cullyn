@@ -5,7 +5,14 @@ import "fmt"
 templ Home(heading string) {
 	<div class="centered">
 		<div class="hover-wrapper" tabindex="0">
-			<div class="hi-mom" data-char-count={ fmt.Sprint(len(heading)) }>{ heading }</div>
+			<div
+				x-cloak
+				class="hi-mom"
+				x-data={ fmt.Sprintf("{ charCount: %d }", len(heading)) }
+				x-bind:style="{ '--char-count': charCount }"
+			>
+				{ heading }
+			</div>
 		</div>
 	</div>
 }

@@ -1,6 +1,10 @@
 @import "vars.css";
 @import "colors/mappings.css";
 
+[x-cloak] {
+    display: none !important;
+}
+
 body {
     isolation: isolate;
     height: 100vh;
@@ -16,17 +20,17 @@ body {
 }
 
 main {
+    position: relative;
     flex-grow: 1;
     z-index: 0;
     width: 96%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
     max-width: var(--ss-8);
     margin: var(--s-8) auto var(--s-12);
 }
 
 .centered {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

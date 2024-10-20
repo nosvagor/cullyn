@@ -48,52 +48,79 @@
     }
 }
 
+@keyframes blink {
+    100% {
+        opacity: 0;
+    }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+}
+
 .hover-wrapper {
-    display: inline-block;
-    padding: var(--s-8);
-    margin-top: calc(var(--s-16) * -1);
     cursor: pointer;
+    padding: var(--s-16);
+    margin-top: -12.5vh;
 }
 
 .hi-mom {
-    --init-delay: var(--t-8);
-    --char-count: 5;
+    --init-fs: calc(var(--fs-16) * 1.5);
+    --blink-count: 3;
+    --init-delay: calc(var(--t-8) * var(--blink-count));
+    --char-count: attr(data-char-count number);
 
     position: relative;
-    margin-top: calc(var(--s-16) * -1);
-    font-size: var(--fs-16);
-    font-weight: 700;
+    font-size: var(--init-fs);
+    font-family: var(--ff-mono);
+    font-weight: 512;
+
+    padding-right: 0.4em;
     width: fit-content;
     color: transparent;
     overflow: hidden;
     white-space: nowrap;
+
     background: linear-gradient(180deg,
             var(--c-fg) 8%,
             var(--red-5) 16%,
-            var(--red-3) 22%,
-            var(--orn-2) 50%,
-            var(--blu-1) 69%,
-            var(--blu-6) 80%,
-            var(--ind-6) 92%);
+            var(--orn-3) 32%,
+            var(--orn-1) 64%,
+            var(--blu-1) 84%,
+            var(--blu-6) 92%,
+            var(--ind-6));
     background-size: 100% 1000%;
+    background-clip: text;
+
     animation:
         rise 20s var(--e-io) infinite,
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
-        fade-in var(--b-i) calc(var(--init-delay) * 0.75),
-        typing var(--t-4) steps(var(--char-count), end),
-        pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate;
-    background-clip: text;
-    transition: font-size var(--t-5) var(--b-i);
+        pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
+        typing var(--t-4) steps(var(--char-count), end);
+    transition:
+        font-size var(--t-5) var(--b-i),
+        font-weight var(--t-5) var(--b-o);
+
+    &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: "|";
+        font-weight: 324;
+        opacity: 0;
+        background: inherit;
+        animation: blink var(--t-8) var(--blink-count) forwards;
+    }
 }
 
 .hover-wrapper:hover .hi-mom,
 .hover-wrapper:focus-within .hi-mom {
-    font-size: calc(var(--fs-16) * 2);
+    font-size: calc(var(--init-fs) * 1.5);
+    font-weight: 690;
     animation:
         rise 20s var(--e-io) infinite,
-        fade-in var(--b-i) calc(var(--init-delay) * 0.75),
-        typing var(--t-4) steps(5, end),
-        fade-in-left var(--b-i) var(--init-delay),
+        typing var(--t-4) steps(var(--char-count), end),
         glitch-2 var(--b-io) var(--t-2) var(--t-6) 3 alternate,
-        retract var(--b-io) var(--t-4) var(--t-6) 3 alternate;
+        retract var(--b-io) var(--t-4) var(--t-6) 2 alternate;
 }

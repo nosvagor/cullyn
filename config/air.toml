@@ -19,8 +19,8 @@ include_dir = [
     "pkg",
     "static",
     "styles",
-    "internal/api/web/*",
-    "static/js/*",
+    "internal/api/web",
+    "static/js",
 ]
 include_ext = ["go", "templ", "css", "js"]
 include_file = []
