@@ -2,23 +2,40 @@ package home
 
 import "fmt"
 
-type HomeContent struct {
-	HeroText string
-	Inputs   []Input
-	Outputs  []Output
+type Content struct {
+	HeroText        string
+	Inputs, Outputs []Route
+}
+
+type Route struct {
+	Title, Route, ImagePath string
+}
+
+templ Inputs(inputs []Route) {
+	<div id="inputs-wrapper">
+		for _, i := range inputs {
+			<img class="image" src={ i.ImagePath }/>
+		}
+	</div>
 }
 
 templ HeroText(heading string) {
-	<div class="centered">
-		<div class="hover-wrapper" tabindex="0">
-			<div
-				x-cloak
-				class="hi-mom"
-				x-data={ fmt.Sprintf("{ charCount: %d }", len(heading)) }
-				x-bind:style="{ '--char-count': charCount }"
-			>
-				{ heading }
-			</div>
+	<div id="hero-wrapper" tabindex="0">
+		<div
+			x-cloak
+			class="hero-text"
+			x-data={ fmt.Sprintf("{ charCount: %d }", len(heading)) }
+			x-bind:style="{ '--char-count': charCount }"
+		>
+			{ heading }
 		</div>
+	</div>
+}
+
+templ Outputs(outputs []Route) {
+	<div id="outputs-wrapper">
+		for _, i := range outputs {
+			<img class="image" src={ i.ImagePath }/>
+		}
 	</div>
 }

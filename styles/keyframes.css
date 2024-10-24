@@ -1,32 +1,80 @@
 /* keyframes.css */
 
+@-webkit-keyframes rise {
+    50% {
+        background-position: 50% 100%;
+    }
+}
+
 @keyframes rise {
     50% {
         background-position: 50% 100%;
     }
 }
 
+@-webkit-keyframes glitch {
+    50% {
+        -webkit-transform: skew(90deg);
+        transform: skew(90deg);
+    }
+}
+
 @keyframes glitch {
     50% {
+        -webkit-transform: skew(90deg);
         transform: skew(90deg);
+    }
+}
+
+@-webkit-keyframes glitch-2 {
+    50% {
+        -webkit-transform: skew(-90deg);
+        transform: skew(-90deg);
     }
 }
 
 @keyframes glitch-2 {
     50% {
+        -webkit-transform: skew(-90deg);
         transform: skew(-90deg);
+    }
+}
+
+@-webkit-keyframes retract {
+    50% {
+        -webkit-transform: scale(0.42);
+        transform: scale(0.42);
     }
 }
 
 @keyframes retract {
     50% {
+        -webkit-transform: scale(0.42);
         transform: scale(0.42);
+    }
+}
+
+@-webkit-keyframes pulse {
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
     }
 }
 
 @keyframes pulse {
     50% {
+        -webkit-transform: scale(1.5);
         transform: scale(1.5);
+    }
+}
+
+@-webkit-keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
     }
 }
 
@@ -40,12 +88,33 @@
     }
 }
 
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
     }
 
     to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    100% {
+        opacity: 0;
+    }
+
+    0%,
+    50% {
         opacity: 1;
     }
 }

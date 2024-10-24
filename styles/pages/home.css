@@ -1,11 +1,45 @@
-.hover-wrapper {
-    cursor: pointer;
-    padding: var(--s-16);
-    margin-top: -12.5vh;
+/* home.css */
+
+#home-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8svh;
+    justify-content: center;
+    align-items: center;
 }
 
-.hi-mom {
-    --init-fs: calc(var(--fs-16) * 1.5);
+/* 󰡂 inputs {{{ */
+#inputs-wrapper {
+    width: 90%;
+    overflow: auto;
+    display: flex;
+    margin-top: -2.5%;
+    padding: var(--s-8);
+    gap: var(--s-8);
+
+    > .image {
+        width: 25svh;
+        height: 20svh;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border: 2px solid var(--c-bg-up);
+        border-radius: var(--br-5);
+    }
+}
+
+/* }}} */
+
+/* 󰙊 hero text {{{ */
+#hero-wrapper {
+    cursor: pointer;
+    padding: var(--s-12) var(--s-16);
+}
+
+.hero-text {
+    --init-fs: calc(var(--fs-16) * 2);
     --blink-count: 3;
     --init-delay: calc(var(--t-8) * var(--blink-count));
     --char-count: attr(data-char-count number);
@@ -27,16 +61,18 @@
             var(--orn-3) 32%,
             var(--orn-1) 64%,
             var(--blu-1) 84%,
-            var(--blu-6) 92%,
+            var(--blu-4) 92%,
             var(--ind-6));
     background-size: 100% 1000%;
     background-clip: text;
 
     animation:
-        rise 20s var(--e-io) infinite,
+        typing var(--t-4) steps(var(--char-count), end),
+        glitch var(--b-io) var(--t-2) calc(var(--init-delay) * 0.17) 1 reverse,
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
-        typing var(--t-4) steps(var(--char-count), end);
+        glitch var(--b-io) var(--t-2) calc(var(--init-delay) * 3) 2 reverse,
+        rise 20s var(--e-io) infinite;
     transition:
         font-size var(--t-5) var(--b-i),
         font-weight var(--t-5) var(--b-o);
@@ -53,13 +89,42 @@
     }
 }
 
-.hover-wrapper:hover .hi-mom,
-.hover-wrapper:focus-within .hi-mom {
+#hero-wrapper:hover .hero-text,
+#hero-wrapper:focus-within .hero-text {
     font-size: calc(var(--init-fs) * 1.5);
     font-weight: 690;
     animation:
-        rise 20s var(--e-io) infinite,
         typing var(--t-4) steps(var(--char-count), end),
-        glitch-2 var(--b-io) var(--t-2) var(--t-6) 3 alternate,
-        retract var(--b-io) var(--t-4) var(--t-6) 2 alternate;
+        glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
+        pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
+        rise 20s var(--e-io) infinite,
+        /* animations on attention */
+        glitch-2 var(--b-io) var(--t-2) var(--t-6) 2 alternate,
+        retract var(--b-io) var(--t-4) var(--t-6) 2 alternate,
+        glitch-2 var(--b-io) var(--t-2) var(--init-delay) 1;
 }
+
+/* }}} */
+
+/* 󰡂  outputs {{{ */
+
+#outputs-wrapper {
+    width: 90%;
+    overflow: auto;
+    display: flex;
+    padding: var(--s-8);
+    gap: var(--s-8);
+
+    > .image {
+        width: 25svh;
+        height: 20svh;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border: 2px solid var(--c-bg-up);
+        border-radius: var(--br-5);
+    }
+}
+
+
+/* }}} */
