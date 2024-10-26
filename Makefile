@@ -55,7 +55,7 @@ r:
 	@air -c $(PATH_AIR)
 
 s:
-	lightningcss --bundle --targets '>= 0.5%' $(CSS_INPUT) -o $(CSS_OUTPUT)
+	lightningcss --minify --bundle --targets '>= 0.5%' $(CSS_INPUT) -o $(CSS_OUTPUT)
 
 go-gen: s
 	@./bin/env.sh

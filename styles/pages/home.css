@@ -68,10 +68,9 @@
 
     animation:
         typing var(--t-4) steps(var(--char-count), end),
-        glitch var(--b-io) var(--t-2) calc(var(--init-delay) * 0.17) 1 reverse,
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
-        glitch var(--b-io) var(--t-2) calc(var(--init-delay) * 3) 2 reverse,
+        glitch-shrink var(--b-i) var(--t-2) calc(var(--init-delay) * 3) 1,
         rise 20s var(--e-io) infinite;
     transition:
         font-size var(--t-5) var(--b-i),
@@ -100,8 +99,7 @@
         rise 20s var(--e-io) infinite,
         /* animations on attention */
         glitch-2 var(--b-io) var(--t-2) var(--t-6) 2 alternate,
-        retract var(--b-io) var(--t-4) var(--t-6) 2 alternate,
-        glitch-2 var(--b-io) var(--t-2) var(--init-delay) 1;
+        retract var(--b-io) var(--t-4) var(--t-6) 2 alternate;
 }
 
 /* }}} */
@@ -110,10 +108,11 @@
 
 #outputs-wrapper {
     width: 90%;
-    overflow: auto;
+    overflow: hidden;
     display: flex;
     padding: var(--s-8);
     gap: var(--s-8);
+    animation: linear scroll infinite;
 
     > .image {
         width: 25svh;
