@@ -70,7 +70,7 @@
         typing var(--t-4) steps(var(--char-count), end),
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
-        glitch-shrink var(--b-i) var(--t-2) calc(var(--init-delay) * 3) 1,
+        glitch-shrink var(--b-i) var(--t-3) calc(var(--init-delay) * 3) 1,
         rise 20s var(--e-io) infinite;
     transition:
         font-size var(--t-5) var(--b-i),
