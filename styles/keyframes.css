@@ -14,56 +14,48 @@
 
 @-webkit-keyframes glitch {
     50% {
-        -webkit-transform: skew(90deg);
         transform: skew(90deg);
     }
 }
 
 @keyframes glitch {
     50% {
-        -webkit-transform: skew(90deg);
         transform: skew(90deg);
     }
 }
 
 @-webkit-keyframes glitch-2 {
     50% {
-        -webkit-transform: skew(-90deg);
         transform: skew(-90deg);
     }
 }
 
 @keyframes glitch-2 {
     50% {
-        -webkit-transform: skew(-90deg);
         transform: skew(-90deg);
     }
 }
 
 @-webkit-keyframes retract {
     50% {
-        -webkit-transform: scale(0.42);
         transform: scale(0.42);
     }
 }
 
 @keyframes retract {
     50% {
-        -webkit-transform: scale(0.42);
         transform: scale(0.42);
     }
 }
 
 @-webkit-keyframes pulse {
     50% {
-        -webkit-transform: scale(1.5);
         transform: scale(1.5);
     }
 }
 
 @keyframes pulse {
     50% {
-        -webkit-transform: scale(1.5);
         transform: scale(1.5);
     }
 }
