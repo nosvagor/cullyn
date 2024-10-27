@@ -135,11 +135,13 @@
     margin: 0 var(--s-8);
     font-size: var(--fs-8);
     color: var(--c-fg);
+    text-decoration: none;
 
     &:hover,
     &:focus-within,
     &:active {
         color: var(--c-2);
+        text-decoration: underline;
     }
 }
 
