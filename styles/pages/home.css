@@ -5,41 +5,25 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8svh;
     justify-content: center;
     align-items: center;
+    gap: 40%;
 }
 
-/* 󰡂 inputs {{{ */
+/* 󰡂 inputs  */
 #inputs-wrapper {
     width: 90%;
-    overflow: auto;
-    display: flex;
-    margin-top: -2.5%;
-    padding: var(--s-8);
-    gap: var(--s-8);
-
-    > .image {
-        width: 25svh;
-        height: 20svh;
-        flex-shrink: 0;
-        object-fit: cover;
-        object-position: center;
-        border: 2px solid var(--c-bg-up);
-        border-radius: var(--br-5);
-    }
 }
-
-/* }}} */
 
 /* 󰙊 hero text {{{ */
 #hero-wrapper {
-    cursor: pointer;
+    position: absolute;
+    cursor: default;
     padding: var(--s-12) var(--s-16);
 }
 
 .hero-text {
-    --init-fs: calc(var(--fs-16) * 2);
+    --init-fs: 12svw;
     --blink-count: 3;
     --init-delay: calc(var(--t-8) * var(--blink-count));
     --char-count: attr(data-char-count number);
@@ -90,7 +74,7 @@
 
 #hero-wrapper:hover .hero-text,
 #hero-wrapper:focus-within .hero-text {
-    font-size: calc(var(--init-fs) * 1.5);
+    font-size: calc(var(--init-fs) * 1.25);
     font-weight: 690;
     animation:
         typing var(--t-4) steps(var(--char-count), end),
@@ -104,26 +88,71 @@
 
 /* }}} */
 
-/* 󰡂  outputs {{{ */
-
 #outputs-wrapper {
-    width: 90%;
-    overflow: hidden;
-    display: flex;
-    padding: var(--s-8);
-    gap: var(--s-8);
-    animation: linear scroll infinite;
+    width: 60%;
+}
 
-    > .image {
-        width: 25svh;
-        height: 20svh;
+.scroll-content {
+    --init-duration: 15s;
+    --scroll-direction: forwards;
+
+    display: flex;
+    gap: var(--s-12);
+    width: max-content;
+    align-items: center;
+    scrollbar-width: none;
+    animation:
+        scroll calc(var(--init-duration) * 4) linear infinite var(--scroll-direction),
+        fade-in var(--t-8) ease-in 1;
+
+    >.image {
+        --base: max(4svh, 5svw);
+        --h: 4;
+        --w: 5;
+        --grow: 1.10;
+
+        cursor: pointer;
+        height: calc(var(--h) * var(--base));
+        width: calc(var(--w) * var(--base));
         flex-shrink: 0;
         object-fit: cover;
         object-position: center;
-        border: 2px solid var(--c-bg-up);
+        border: 1px solid;
         border-radius: var(--br-5);
+        transition: transform var(--t-8) var(--b-i);
+
+        &:hover,
+        &:focus-within {
+            transform: scale(var(--grow));
+        }
     }
 }
 
+.scroll-container {
+    position: relative;
+    overflow: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    padding: var(--s-8);
 
-/* }}} */
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 25%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, var(--c-bg) 0%, transparent 100%);
+    }
+
+    &&::after {
+        right: 0;
+        background: linear-gradient(to right, transparent 0%, var(--c-bg) 100%);
+    }
+}

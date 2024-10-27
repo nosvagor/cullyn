@@ -2,6 +2,7 @@ package home
 
 import "fmt"
 
+// ============================================================================
 type Content struct {
 	HeroText        string
 	Inputs, Outputs []Route
@@ -11,11 +12,10 @@ type Route struct {
 	Title, Route, ImagePath string
 }
 
+// ============================================================================
 templ Inputs(inputs []Route) {
-	<div id="inputs-wrapper">
-		for _, i := range inputs {
-			<img class="image" src={ i.ImagePath }/>
-		}
+	<div id="inputs-wrapper" class="scroll-container">
+		@renderImages(inputs, "reverse")
 	</div>
 }
 
@@ -33,8 +33,22 @@ templ HeroText(heading string) {
 }
 
 templ Outputs(outputs []Route) {
-	<div id="outputs-wrapper">
-		for _, i := range outputs {
+	<div id="outputs-wrapper" class="scroll-container">
+		@renderImages(outputs, "forwards")
+	</div>
+}
+
+// ============================================================================
+templ renderImages(sources []Route, direction string) {
+	<div
+		class="scroll-content"
+		x-data={ fmt.Sprintf("{ direction: '%s' }", direction) }
+		x-bind:style="{ '--scroll-direction': direction }"
+	>
+		for _, i := range sources {
+			<img class="image" src={ i.ImagePath }/>
+		}
+		for _, i := range sources {
 			<img class="image" src={ i.ImagePath }/>
 		}
 	</div>

@@ -3,7 +3,7 @@ package pages
 import "nosvagor/cullyn.dev/views/pages/home"
 
 templ Home(data home.Content) {
-	<div id="home-wrapper">
+	<div id="home-wrapper" class="">
 		@home.Inputs(data.Inputs)
 		@home.HeroText(data.HeroText)
 		@home.Outputs(data.Outputs)
