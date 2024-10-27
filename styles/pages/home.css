@@ -132,8 +132,8 @@
 }
 
 .quick-links a {
-    margin: 0 var(--s-8);
-    font-size: var(--fs-8);
+    margin: 0 var(--s-4);
+    font-size: var(--fs-10);
     color: var(--c-fg);
     text-decoration: none;
 
