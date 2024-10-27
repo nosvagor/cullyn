@@ -1,4 +1,6 @@
-/* home.css */
+/* ============================================================================ */
+/* /page/home.css */
+/* ============================================================================ */
 
 #home-wrapper {
     width: 100%;
@@ -7,23 +9,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40%;
-}
+    gap: 35%;
 
-/* 󰡂 inputs  */
-#inputs-wrapper {
-    width: 90%;
-}
+    #inputs-wrapper {
+        width: 90%;
+    }
 
-/* 󰙊 hero text {{{ */
-#hero-wrapper {
-    position: absolute;
-    cursor: default;
-    padding: var(--s-12) var(--s-16);
+    #hero-wrapper {
+        position: absolute;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        padding-left: var(--s-8);
+    }
+
+    #outputs-wrapper {
+        width: 66%;
+    }
 }
 
 .hero-text {
-    --init-fs: 12svw;
+    --init-fs: clamp(4svw, var(--fs-20), 16svw);
     --blink-count: 3;
     --init-delay: calc(var(--t-8) * var(--blink-count));
     --char-count: attr(data-char-count number);
@@ -54,7 +61,7 @@
         typing var(--t-4) steps(var(--char-count), end),
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
-        glitch-shrink var(--b-i) var(--t-3) calc(var(--init-delay) * 3) 1,
+        glitch-shrink var(--b-i) var(--t-2) calc(var(--init-delay) * 3) 1,
         rise 20s var(--e-io) infinite;
     transition:
         font-size var(--t-5) var(--b-i),
@@ -86,54 +93,9 @@
         retract var(--b-io) var(--t-4) var(--t-6) 2 alternate;
 }
 
-/* }}} */
-
-#outputs-wrapper {
-    width: 60%;
-}
-
-.scroll-content {
-    --init-duration: 15s;
-    --scroll-direction: forwards;
-
-    display: flex;
-    gap: var(--s-12);
-    width: max-content;
-    align-items: center;
-    scrollbar-width: none;
-    animation:
-        scroll calc(var(--init-duration) * 4) linear infinite var(--scroll-direction),
-        fade-in var(--t-8) ease-in 1;
-
-    >.image {
-        --base: max(4svh, 5svw);
-        --h: 4;
-        --w: 5;
-        --grow: 1.10;
-
-        cursor: pointer;
-        height: calc(var(--h) * var(--base));
-        width: calc(var(--w) * var(--base));
-        flex-shrink: 0;
-        object-fit: cover;
-        object-position: center;
-        border: 1px solid;
-        border-radius: var(--br-5);
-        transition: transform var(--t-8) var(--b-i);
-
-        &:hover,
-        &:focus-within {
-            transform: scale(var(--grow));
-        }
-    }
-}
-
 .scroll-container {
     position: relative;
     overflow: hidden;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    padding: var(--s-8);
 
     &::before,
     &::after {
@@ -154,5 +116,72 @@
     &&::after {
         right: 0;
         background: linear-gradient(to right, transparent 0%, var(--c-bg) 100%);
+    }
+}
+
+.quick-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    opacity: 0;
+    animation: fade-in calc(var(--t-8) * 2) var(--t-8) var(--e-i) forwards 1;
+}
+
+.quick-links a {
+    margin: 0 var(--s-8);
+    font-size: var(--fs-8);
+    color: var(--c-fg);
+
+    &:hover,
+    &:focus-within,
+    &:active {
+        color: var(--c-2);
+    }
+}
+
+.scroll-content {
+    --init-duration: 15s;
+    --scroll-direction: forwards;
+    --gap: min(2svh, 2svw);
+
+    display: flex;
+    width: max-content;
+    margin: var(--gap) 0;
+    gap: var(--gap);
+    opacity: 0;
+
+    animation:
+        scroll calc(var(--init-duration) * 4) linear infinite var(--scroll-direction),
+        fade-in calc(var(--t-8) * 2) var(--t-6) var(--e-i) forwards 1;
+
+    >.image {
+        --base: min(5svh, 5svw);
+        --h: 4;
+        --w: 5;
+        --grow: 1.15;
+
+        cursor: pointer;
+        height: calc(var(--h) * var(--base));
+        width: calc(var(--w) * var(--base));
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border: 2px solid var(--c-fg);
+        border-radius: var(--br-5);
+        transition:
+            transform var(--t-7) var(--b-i),
+            border-color var(--t-4) var(--b-io),
+            margin var(--t-6) var(--e-io);
+
+        &:hover,
+        &:focus-within,
+        &:active {
+            transform: scale(var(--grow));
+            border-color: var(--c-2);
+            margin: 0 calc(var(--gap) * var(--grow));
+        }
     }
 }

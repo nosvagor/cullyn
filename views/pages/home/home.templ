@@ -16,6 +16,7 @@ type Route struct {
 templ Inputs(inputs []Route) {
 	<div id="inputs-wrapper" class="scroll-container">
 		@renderImages(inputs, "reverse")
+		@quickLinks(inputs)
 	</div>
 }
 
@@ -34,6 +35,7 @@ templ HeroText(heading string) {
 
 templ Outputs(outputs []Route) {
 	<div id="outputs-wrapper" class="scroll-container">
+		@quickLinks(outputs)
 		@renderImages(outputs, "forwards")
 	</div>
 }
@@ -46,10 +48,23 @@ templ renderImages(sources []Route, direction string) {
 		x-bind:style="{ '--scroll-direction': direction }"
 	>
 		for _, i := range sources {
-			<img class="image" src={ i.ImagePath }/>
+			<img class="image" src={ i.ImagePath } @dragstart.prevent/>
 		}
 		for _, i := range sources {
-			<img class="image" src={ i.ImagePath }/>
+			<img class="image" src={ i.ImagePath } @dragstart.prevent/>
+		}
+	</div>
+}
+
+templ quickLinks(sources []Route) {
+	<div class="quick-links">
+		for _, i := range sources {
+			<a
+				href={ templ.SafeURL(i.Route) }
+				hx-get={ i.Route }
+			>
+				{ i.Title }
+			</a>
 		}
 	</div>
 }

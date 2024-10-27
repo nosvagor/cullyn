@@ -7,7 +7,6 @@
     display: none !important;
 }
 
-
 body {
     isolation: isolate;
     height: 100vh;
@@ -28,7 +27,6 @@ main {
     z-index: 0;
     width: 96%;
     height: 100%;
-    max-width: var(--ss-8);
     margin: var(--s-8) auto var(--s-12);
 }
 
