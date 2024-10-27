@@ -18,13 +18,6 @@
     }
 }
 
-@keyframes glitch-shrink {
-    50% {
-        transform: skew(90deg) scale(0.69);
-        font-weight: 300;
-    }
-}
-
 @keyframes glitch-2 {
     50% {
         transform: skew(-90deg);
