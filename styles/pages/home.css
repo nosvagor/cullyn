@@ -60,9 +60,12 @@
     animation:
         typing var(--t-4) steps(var(--char-count), end),
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
+        flicker var(--e-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
-        glitch var(--b-i) var(--t-2) calc(var(--init-delay) * 3) reverse 1,
-        retract var(--b-i) var(--t-3) calc(var(--init-delay) * 3) forwards 1,
+        /* delay and re-apply on hover-lost ↓ */
+        glitch-2 var(--b-io) var(--t-2) calc(var(--init-delay) * 3) 2 alternate,
+        flicker-2 var(--e-io) var(--t-2) calc(var(--init-delay) * 3) 2 alternate,
+        pulse-2 var(--b-io) var(--t-4) calc(var(--init-delay) * 3) 2 alternate,
         rise 20s var(--e-io) infinite;
     transition:
         font-size var(--t-5) var(--b-i),
@@ -81,16 +84,20 @@
 }
 
 #hero-wrapper:hover .hero-text,
+#hero-wrapper:active .hero-text,
 #hero-wrapper:focus-within .hero-text {
     font-size: calc(var(--init-fs) * 1.25);
     font-weight: 690;
     animation:
+        /* preserve animation state on hover ↓ */
         typing var(--t-4) steps(var(--char-count), end),
         glitch var(--b-io) var(--t-2) var(--init-delay) 2 alternate,
+        flicker var(--e-io) var(--t-2) var(--init-delay) 2 alternate,
         pulse var(--b-io) var(--t-4) var(--init-delay) 2 alternate,
         rise 20s var(--e-io) infinite,
-        /* animations on attention */
-        glitch-2 var(--b-io) var(--t-2) var(--t-6) 2 alternate,
+        /* animations on hover ↓ */
+        glitch-hover var(--b-io) var(--t-2) var(--t-6) 2 alternate,
+        flicker-hover var(--e-io) var(--t-2) var(--t-6) 2 alternate,
         retract var(--b-io) var(--t-4) var(--t-6) 2 alternate;
 }
 

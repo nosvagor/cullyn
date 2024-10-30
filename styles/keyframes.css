@@ -20,7 +20,13 @@
 
 @keyframes glitch-2 {
     50% {
-        transform: skew(-90deg);
+        transform: skew(90deg);
+    }
+}
+
+@keyframes glitch-hover {
+    50% {
+        transform: skew(90deg);
     }
 }
 
@@ -31,6 +37,12 @@
 }
 
 @keyframes pulse {
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes pulse-2 {
     50% {
         transform: scale(1.5);
     }
@@ -53,6 +65,24 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes flicker {
+    50% {
+        opacity: 0.42;
+    }
+}
+
+@keyframes flicker-2 {
+    50% {
+        opacity: 0.42;
+    }
+}
+
+@keyframes flicker-hover {
+    50% {
+        opacity: 0.42;
     }
 }
 
